@@ -1,15 +1,25 @@
-function binary_search(arr, target):
-    start = 0
-    end = len(arr) - 1
+pos = -1
+def search(lis,n):#lis is list
+    l= 0
+    u= len(lis) - 1
 
-    while start <= end:
-        mid = (start + end) // 2
+    while l <= u:
+        mid = (l + u) // 2
+        if lis[mid] == n:
+            globals()['pos']= mid
+            return True
 
-        if arr[mid] == target:
-            return mid
-        elif arr[mid] < target:
-            start = mid + 1
         else:
-            end = mid - 1
+            if lis[mid] == n:
+                l=mid
+            else:
+                u = mid
 
-    return -1
+lis = [4,5,7,45,86,976,3344,75497]
+n= 3344
+
+if search(lis,n):
+    print('found at',pos+1 )
+else:
+    print("not found")
+
